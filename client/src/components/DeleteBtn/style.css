@@ -1,4 +1,6 @@
 .delete-btn {
+  display:inline-block;
+  width:50px;
   float: right;
   color: #e74944;
 }

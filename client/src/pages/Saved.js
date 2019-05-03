@@ -1,6 +1,8 @@
 import API from "../utils/API";
 import React, { Component } from "react";
+import Wrapper from "../components/Wrapper";
 import DeleteBtn from "../components/DeleteBtn";
+import ViewBtn from "../components/ViewBtn";
 import Jumbotron from "../components/Jumbotron";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
@@ -53,31 +55,34 @@ class Saved extends Component {
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-               <h1>Books On My List</h1>
-             </Jumbotron>
-             {this.state.savedBooks.length ? (
-              <List>
-                {this.state.savedBooks.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
-                      <strong>
-                        {book.title} by {book.author}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-        </Row>
-      </Container>
+      <Wrapper>
+        <Container fluid>
+          <Row>
+            <Col size="md-12 sm-12">
+              <Jumbotron>
+                <h1>Books On My List</h1>
+              </Jumbotron>
+              {this.state.savedBooks.length ? (
+                <List>
+                  {this.state.savedBooks.map(book => (
+                    <ListItem key={book._id}>
+                      <Link to={"/books/" + book._id}>
+                        <strong>
+                          {book.title} by {book.author}
+                        </strong>
+                      </Link>
+                      <ViewBtn target="_blank" href={book.link} />
+                      <DeleteBtn onClick={() => this.deleteBook(book._id)} />
+                    </ListItem>
+                  ))}
+                </List>
+              ) : (
+                <h3>No Results to Display</h3>
+              )}
+            </Col>
+          </Row>
+        </Container>
+      </Wrapper>
     );
   }
 }

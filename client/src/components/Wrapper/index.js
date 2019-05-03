@@ -3,12 +3,10 @@ import "./style.css";
 
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
-function DeleteBtn(props) {
+function Wrapper(props) {
   return (
-    <span className="delete-btn" {...props} role="button" tabIndex="0">
-      Delete
-    </span>
+    <div class="wrapper">{props.children}</div>
   );
 }
 
-export default DeleteBtn;
+export default Wrapper;

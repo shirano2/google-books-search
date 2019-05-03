@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import Wrapper from "../components/Wrapper";
 import DeleteBtn from "../components/DeleteBtn";
 import SaveBtn from "../components/SaveBtn";
+import ViewBtn from "../components/ViewBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
@@ -87,6 +89,7 @@ class Search extends Component {
             link:element.volumeInfo.infoLink?element.volumeInfo.infoLink:null
           })
         });
+        this.loadBooks();
         this.setState({ books: newBooks });
       }) 
       .catch(err => console.log(err));
@@ -101,48 +104,51 @@ class Search extends Component {
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <h1>Please type a book of name</h1>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.title}
-                onChange={this.handleInputChange}
-                name="title"
-                placeholder="Title (required)"
-              />
-              <FormBtn
-                disabled={!this.state.title}
-                onClick={this.handleFormSubmit}
-              >
-                Search
-              </FormBtn>
-            </form>
-          </Col>
-          <Col size="md-12 sm-12">
-            {this.state.books.length ? (
-              <List>
-                {this.state.books.map((book,index) => (
-                  <ListItem id={index} key={index}>
-                    {/* <Link to={"/books/" + book._id}> */}
-                      <strong>
-                        {book.title}
-                      </strong>
-                    {/* </Link> */}
-                    {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
-                    <SaveBtn onClick={()=>this.saveBook(index)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-        </Row>
-      </Container>
+      <Wrapper>
+        <Container fluid>
+          <Row>
+            <Col size="md-12">
+              <Jumbotron>
+                <h1>Please type a book of name</h1>
+              </Jumbotron>
+              <form>
+                <Input
+                  value={this.state.title}
+                  onChange={this.handleInputChange}
+                  name="title"
+                  placeholder="Title (required)"
+                />
+                <FormBtn
+                  disabled={!this.state.title}
+                  onClick={this.handleFormSubmit}
+                >
+                  Search
+                </FormBtn>
+              </form>
+            </Col>
+            <Col size="md-12 sm-12">
+              {this.state.books.length ? (
+                <List>
+                  {this.state.books.map((book,index) => (
+                    <ListItem id={index} key={index}>
+                      {/* <Link to={"/books/" + book._id}> */}
+                        <strong>
+                          {book.title}
+                        </strong>
+                      {/* </Link> */}
+                      {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
+                      <ViewBtn target="_blank" href={book.link} />
+                      <SaveBtn onClick={()=>this.saveBook(index)} />
+                    </ListItem>
+                  ))}
+                </List>
+              ) : (
+                <h3>No Results to Display</h3>
+              )}
+            </Col>
+          </Row>
+        </Container>
+      </Wrapper>
     );
   }
 }
