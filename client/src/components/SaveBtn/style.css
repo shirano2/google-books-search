@@ -1,4 +1,11 @@
 .save-btn {
   float: right;
   color: white;
+  cursor: pointer;
+}
+
+.save-btn[saved="true"] {
+  background-color:rgba(3, 221, 236, 0.8);
+  border-color:rgba(3, 221, 236, 0.8);
+  cursor:default;
 }

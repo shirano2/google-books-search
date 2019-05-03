@@ -4,24 +4,21 @@
   height:780px;
   margin:20px;
 }
+
 .card-img-top{
   height:300px;
 }
+
 .card-body {
   height:300px;
 }
+
 .card-title {
   height:76px;
   overflow: hidden;
 }
+
 .card-text {
   height:290px;
   overflow: hidden;
 }
-/* <div className="card">
-<img className="card-img-top" src={image} alt="Card image cap" />
-<div className="card-body">
-  <h5 className="card-title">{title} {author? `by ${author}` : "" } </h5>
-  <p className="card-text">{description}</p>
-
- */
