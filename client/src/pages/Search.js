@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import Card from "../components/Card";
 
 class Search extends Component {
   state = {
@@ -128,20 +129,9 @@ class Search extends Component {
             </Col>
             <Col size="md-12 sm-12">
               {this.state.books.length ? (
-                <List>
-                  {this.state.books.map((book,index) => (
-                    <ListItem id={index} key={index}>
-                      {/* <Link to={"/books/" + book._id}> */}
-                        <strong>
-                          {book.title}
-                        </strong>
-                      {/* </Link> */}
-                      {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
-                      <ViewBtn target="_blank" href={book.link} />
-                      <SaveBtn onClick={()=>this.saveBook(index)} />
-                    </ListItem>
-                  ))}
-                </List>
+                  this.state.books.map((book,index) => (
+                    <Card key={index} title={book.title} author={book.author} description={book.description} image={book.image} link={book.link} handler={this.saveBook} index={index} match="Search"/>
+                  ))
               ) : (
                 <h3>No Results to Display</h3>
               )}

@@ -1,0 +1,25 @@
+.navbar span{
+  color:white;
+  box-sizing: border-box;
+  width: 20px;
+  text-align: center;
+  margin-right:12px;
+}
+.navbar a{
+  margin:0;
+  padding:0;
+}
+
+.navbar .active {
+  color:rgb(6, 255, 6);
+}
+
+@media screen and (max-width:420px) {
+  .navbar {
+    justify-content: center;
+  }
+  #nav-title{
+    display:none;
+    margin:0;
+  }
+}

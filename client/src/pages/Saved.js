@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import Card from "../components/Card";
 
 class Saved extends Component {
   state = {
@@ -63,19 +64,9 @@ class Saved extends Component {
                 <h1>Books On My List</h1>
               </Jumbotron>
               {this.state.savedBooks.length ? (
-                <List>
-                  {this.state.savedBooks.map(book => (
-                    <ListItem key={book._id}>
-                      <Link to={"/books/" + book._id}>
-                        <strong>
-                          {book.title} by {book.author}
-                        </strong>
-                      </Link>
-                      <ViewBtn target="_blank" href={book.link} />
-                      <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-                    </ListItem>
-                  ))}
-                </List>
+                  this.state.savedBooks.map((book,index) => (
+                    <Card key={index} title={book.title} author={book.author} description={book.description} image={book.image} link={book.link} handler={this.deleteBook} index={book._id} match="Saved" />
+                  ))
               ) : (
                 <h3>No Results to Display</h3>
               )}

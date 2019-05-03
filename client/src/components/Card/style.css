@@ -1,19 +1,27 @@
 .card {
-  background-size: cover;
-  background-position: center;
-  background-clip: content-box;
-  border: 6px solid white;
-  height: 400px;
-  width: 400px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  position: relative;
-  margin: 0 auto;
-  margin-top: 30px;
+  width:18rem;
+  float:left;
+  height:780px;
+  margin:20px;
 }
+.card-img-top{
+  height:300px;
+}
+.card-body {
+  height:300px;
+}
+.card-title {
+  height:76px;
+  overflow: hidden;
+}
+.card-text {
+  height:290px;
+  overflow: hidden;
+}
+/* <div className="card">
+<img className="card-img-top" src={image} alt="Card image cap" />
+<div className="card-body">
+  <h5 className="card-title">{title} {author? `by ${author}` : "" } </h5>
+  <p className="card-text">{description}</p>
 
-.card .fa-spinner {
-  font-size: 180px;
-  position: absolute;
-  left: 25%;
-  top: 25%;
-}
+ */
