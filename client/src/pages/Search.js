@@ -87,19 +87,41 @@ class Search extends Component {
             author:element.volumeInfo.authors?element.volumeInfo.authors[0]:null,
             description:element.volumeInfo.description?element.volumeInfo.description:null,
             image:element.volumeInfo.imageLinks?element.volumeInfo.imageLinks.thumbnail:"https://placehold.it/300x300",
-            link:element.volumeInfo.infoLink?element.volumeInfo.infoLink:null
+            link:element.volumeInfo.infoLink?element.volumeInfo.infoLink:null,
+            saved:"false"
           })
         });
         this.loadBooks();
-        this.setState({ books: newBooks });
+        this.checkBook(newBooks);
       }) 
       .catch(err => console.log(err));
   };
 
+  checkBook=(newBooks) => {
+    API.getBooks().then(res =>{
+      if(res.data.length!==0) {
+        res.data.forEach((element) => {
+          newBooks.forEach((newElement) => {
+            if(element.link===newElement.link) {
+              newElement.saved="true"
+            }
+          })
+        })
+      }
+      this.setState({ books: newBooks });
+     })
+     .catch(err => console.log(err));
+  }
+
   saveBook = (index) => {
-    console.log(this.state.books[index]);
     API.saveBook(this.state.books[index])
-      .then(res => this.loadBooks())
+      .then(res => {
+        const newBooks={...this.state.books}
+        newBooks[index].saved = "true"
+        this.setState({
+          newBooks
+        })
+      })
       .catch(err => console.log(err));
   }
 
@@ -130,7 +152,7 @@ class Search extends Component {
             <Col size="md-12 sm-12">
               {this.state.books.length ? (
                   this.state.books.map((book,index) => (
-                    <Card key={index} title={book.title} author={book.author} description={book.description} image={book.image} link={book.link} handler={this.saveBook} index={index} match="Search"/>
+                    <Card key={index} title={book.title} author={book.author} description={book.description} image={book.image} link={book.link} handler={()=>this.saveBook(index)} saved={book.saved} match="Search"/>
                   ))
               ) : (
                 <h3>No Results to Display</h3>

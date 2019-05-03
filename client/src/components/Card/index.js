@@ -5,7 +5,7 @@ import SaveBtn from "../SaveBtn";
 import ViewBtn from "../ViewBtn";
 import "./style.css";
 
-function Card({title, author, description, image, link, handler, index, match}) {
+function Card({title, author, description, image, link, handler, saved="default", match}) {
   return (
   <div className="card">
     <img className="card-img-top" src={image} alt="Card image cap" />
@@ -15,7 +15,7 @@ function Card({title, author, description, image, link, handler, index, match}) 
       <p className="card-text">{description}</p>
       {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
       <ViewBtn target="_blank" href={link} />
-      {match==="Search"? <SaveBtn onClick={()=>handler(index)} /> : <DeleteBtn onClick={()=>handler(index)} /> }
+      {match==="Search"? <SaveBtn saved={saved} onClick={handler} /> : <DeleteBtn onClick={handler} /> }
     </div>
   </div>
   );

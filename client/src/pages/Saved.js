@@ -33,7 +33,6 @@ class Saved extends Component {
     API.getBooks()
       .then(res =>
         {
-          console.log(res.data);
           this.setState({ savedBooks: res.data })
 //           author: "Harry Porter"
 // date: "2019-05-02T05:15:31.454Z"
@@ -65,7 +64,7 @@ class Saved extends Component {
               </Jumbotron>
               {this.state.savedBooks.length ? (
                   this.state.savedBooks.map((book,index) => (
-                    <Card key={index} title={book.title} author={book.author} description={book.description} image={book.image} link={book.link} handler={this.deleteBook} index={book._id} match="Saved" />
+                    <Card key={index} title={book.title} author={book.author} description={book.description} image={book.image} link={book.link} handler={()=>this.deleteBook(book._id)} match="Saved" />
                   ))
               ) : (
                 <h3>No Results to Display</h3>

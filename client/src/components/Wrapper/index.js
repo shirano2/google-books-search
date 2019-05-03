@@ -5,7 +5,7 @@ import "./style.css";
 // That way we don't have to define them all individually
 function Wrapper(props) {
   return (
-    <div class="wrapper">{props.children}</div>
+    <div className="wrapper">{props.children}</div>
   );
 }
 
