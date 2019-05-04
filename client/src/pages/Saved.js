@@ -10,16 +10,19 @@ class Saved extends Component {
     savedBooks: []
   };
 
+  //when finishing loading of homepage at the beginning
   componentDidMount() {
     this.loadBooks();
   }
 
+  //showing whole saved books
   loadBooks = () => {
     API.getBooks()
       .then(res => this.setState({ savedBooks: res.data }))
       .catch(err => console.log(err));
   };
   
+  //deleting a book from saved books
   deleteBook = id => {
     API.deleteBook(id)
       .then(() => this.loadBooks())

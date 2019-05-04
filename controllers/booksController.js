@@ -1,7 +1,7 @@
 const db = require("../models");
 const axios = require("axios");
 
-// Defining methods for the booksController
+//defining methods for the booksController
 module.exports = {
   findAll: function(req, res) {
     db.Book

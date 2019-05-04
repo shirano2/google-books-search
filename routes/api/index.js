@@ -2,7 +2,7 @@ const router = require("express").Router();
 const bookRoutes = require("./books");
 const dataRoutes = require("./data");
 
-// Book routes
+// Book & Data routes
 router.use("/books", bookRoutes);
 router.use("/data", dataRoutes);
 

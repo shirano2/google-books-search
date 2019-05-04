@@ -12,10 +12,12 @@ class Search extends Component {
     title: ""
   };
 
+  //after book searching
   loadBooks = () => {
     this.setState({title: "" })
   };
 
+  //when inputting book's title
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -23,6 +25,7 @@ class Search extends Component {
     });
   };
 
+  //when pressing the submit button
   handleFormSubmit = event => {
     event.preventDefault();
     API.getData(this.state.title.split(" ").join("+"))
@@ -44,6 +47,7 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
+  //checking if there was aleady saved book from searching data
   checkBook=(newBooks) => {
     API.getBooks().then(res =>{
       if(res.data.length!==0) {
@@ -60,6 +64,7 @@ class Search extends Component {
      .catch(err => console.log(err));
   }
 
+  //when clicking save button to save a book
   saveBook = (index) => {
     API.saveBook(this.state.books[index])
       .then(res => {
