@@ -13,6 +13,7 @@ https://google-books-search123.herokuapp.com/
 
 * HTML5
 * CSS3
+* Bootstrap
 * jQuery
 * Javascript
 * Node.JS
