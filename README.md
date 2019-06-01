@@ -60,7 +60,7 @@ If user already added previously, then "save" button changed to "saved" button a
 
 ### Saved Page
 
-User can find saved books here. Also user can delete saved books from DB
+User can find saved books from DB here. Also user can delete saved books from DB
 
 
 ### Creator
