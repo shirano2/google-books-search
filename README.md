@@ -1,4 +1,4 @@
-# google-books-search
+# Google-Books-Search
 
 This app is for your life of reading books.
 
@@ -35,7 +35,7 @@ findData: function(req, res) {
 ```
 
 When a user comes to website, user can input book's name in search bar. And using axios, website shows book data through google book API
-User can saved books by clicking "save" button after results come out. 
+User can saved books by clicking "save" button or go to book site directly after results come out. 
 
 #### Check the status of Saved
 
