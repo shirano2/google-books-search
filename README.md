@@ -14,8 +14,8 @@ https://google-books-search123.herokuapp.com/
 * HTML5
 * CSS3
 * Bootstrap 4.0
-* jQuery
 * Javascript
+* JQuery
 * MongoDB
 * Google Books API
 * React.js
