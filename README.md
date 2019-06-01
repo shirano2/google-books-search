@@ -2,7 +2,7 @@
 
 This app is for your life of reading books.
 
-You can save favrorite books or go to the site directly to Google Books site.
+You can save favrorite books or go to the site directly to Google Books site after searching books.
 
 ## Site
 https://google-books-search123.herokuapp.com/
