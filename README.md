@@ -18,7 +18,7 @@ https://google-books-search123.herokuapp.com/
 * React.JS
 * MongoDB
 * axios, express, mongoose
-* google book API
+* Google book API
 
 
 ### Search Page 
