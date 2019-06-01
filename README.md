@@ -16,11 +16,11 @@ https://google-books-search123.herokuapp.com/
 * Bootstrap 4.0
 * jQuery
 * Javascript
-* Node.JS
-* React.JS
 * MongoDB
-* axios, express, mongoose
 * Google Books API
+* React.js
+* Node.js (Axios, Express, Mongoose)
+
 
 
 ### Search Page 
