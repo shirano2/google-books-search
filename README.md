@@ -64,5 +64,5 @@ If user already added previously, then "save" button changed to "saved" button a
 User can find saved books here. Also user can delete saved books from DB
 
 
-### creator
+### Creator
 This is made by Minseok Choi (https://github.com/shirano2)
